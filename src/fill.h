@@ -20,7 +20,7 @@ void fill(T *x, int N, T v) {
 
 template <class T>
 void fill(vector<T>& x, T v) {
-  fill(x.data(), x.size(), v);
+  fill(x.begin(), x.end(), v);
 }
 
 template <class K, class T>

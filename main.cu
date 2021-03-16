@@ -39,6 +39,8 @@ int main(int argc, char **argv) {
   print(h);
   // runPageRankPush(g, all);
   runPageRank(h, all);
+  auto vs = dfs(g, 1);
+  printf("DFS: "); print(vs);
   // runAdd();
   // runFill();
   // runSum();

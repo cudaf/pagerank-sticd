@@ -1,22 +1,24 @@
 #pragma once
 #include <vector>
-#include "DiGraph.h"
+
+using std::vector;
 
 
 
 
 // Traverses nodes in depth-first manner, listing on exit.
-void dfsEndLoop(DiGraph& x, int i, vector<bool>& vis, vector<int>& a) {
-  vis[i] = true;
-  for (auto& j : x.edges(i))
-    if (!vis[j]) dfsEndLoop(x, j, vis, a);
-  a.push_back(i);
+template <class G, class C, class K>
+void dfsEndLoop(G& x, K u, C& vis, vector<K>& a) {
+  vis[u] = true;
+  for (auto& v : x.edges(u))
+    if (!vis[v]) dfsEndLoop(x, v, vis, a);
+  a.push_back(u);
 }
 
-
-vector<int> dfsEnd(DiGraph& x, int i=0) {
-  vector<bool> vis(x.span());
-  vector<int> a;
-  dfsEndLoop(x, i, vis, a);
+template <class G, class K>
+auto dfsEnd(G& x, K u) {
+  auto vis = x.createVertexData(bool());
+  vector<K> a;
+  dfsEndLoop(x, u, vis, a);
   return a;
 }

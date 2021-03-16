@@ -22,3 +22,4 @@
 #include "copy.h"
 #include "transpose.h"
 #include "pageRank.h"
+#include "dfs.h"

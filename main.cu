@@ -25,6 +25,16 @@ void runPageRank(G& g, bool all) {
 }
 
 
+template <class G>
+void runPageRankSticd(G& g, bool all) {
+  float t;
+  auto ranks1 = pageRankSticd(t, g);
+  printf("[%07.1f ms] pageRankSticd\n", t); if(all) print(ranks1);
+  // auto ranks2 = pageRankCuda(t, g);
+  // printf("[%07.1f ms] pageRankCuda\n", t); if (all) print(ranks2);
+}
+
+
 int main(int argc, char **argv) {
   DiGraph<> g;
   DiGraph<int, int> h;
@@ -39,8 +49,7 @@ int main(int argc, char **argv) {
   print(h);
   // runPageRankPush(g, all);
   runPageRank(h, all);
-  auto vs = dfs(g, 1);
-  printf("DFS: "); print(vs);
+  runPageRankSticd(h, all);
   // runAdd();
   // runFill();
   // runSum();

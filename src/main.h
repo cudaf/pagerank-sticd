@@ -22,6 +22,7 @@
 #include "copy.h"
 #include "transpose.h"
 #include "pageRank.h"
+#include "pageRankSticd.h"
 #include "dfs.h"
 #include "dfsEnd.h"
 #include "components.h"
